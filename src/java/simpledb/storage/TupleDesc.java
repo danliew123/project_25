@@ -248,6 +248,7 @@ public class TupleDesc implements Serializable {
      * 
      * @return String describing this descriptor.
      */
+    //QH
     public String toString() {
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i < tdList.size(); i++) {
