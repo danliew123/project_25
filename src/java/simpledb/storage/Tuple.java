@@ -14,6 +14,8 @@ public class Tuple implements Serializable {
     private static final long serialVersionUID = 1L;
     private TupleDesc td;
     private RecordId recordId;
+    //QH
+    private Field[] fields;
     /**
      * Create a new tuple with the specified schema (type).
      *
@@ -21,10 +23,12 @@ public class Tuple implements Serializable {
      *            the schema of this tuple. It must be a valid TupleDesc
      *            instance with at least one field.
      */
+    //QH
     public Tuple(TupleDesc td) {
         // some code goes here
         this.td = td;
         this.recordId = null;
+        this.fields = new Field[td.numFields()];
     }
 
     /**
@@ -65,8 +69,13 @@ public class Tuple implements Serializable {
      * @param f
      *            new value for the field.
      */
+    //QH
     public void setField(int i, Field f) {
         // some code goes here
+        if (i < 0 || i >= fields.length) {
+            throw new IllegalArgumentException("Invalid field index");
+        }
+        fields[i] = f;
     }
 
     /**
@@ -75,9 +84,13 @@ public class Tuple implements Serializable {
      * @param i
      *            field index to return. Must be a valid index.
      */
+    //QH
     public Field getField(int i) {
         // some code goes here
-        return null;
+        if (i < 0 || i >= fields.length) {
+            throw new IllegalArgumentException("Invalid field index");
+        }
+        return fields[i];
     }
 
     /**
@@ -88,26 +101,38 @@ public class Tuple implements Serializable {
      *
      * where \t is any whitespace (except a newline)
      */
+    //QH
     public String toString() {
         // some code goes here
-        throw new UnsupportedOperationException("Implement this");
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < fields.length; i++) {
+            output.append(fields[i].toString());
+            if (i < fields.length-1) {
+                output.append('\t');
+            }
+        }
+        return output.toString();
+        // throw new UnsupportedOperationException("Implement this");
     }
 
     /**
      * @return
      *        An iterator which iterates over all the fields of this tuple
      * */
+    //QH
     public Iterator<Field> fields()
     {
         // some code goes here
-        return null;
+        return Arrays.asList(fields).iterator();
     }
 
     /**
      * reset the TupleDesc of this tuple (only affecting the TupleDesc)
      * */
+    //QH
     public void resetTupleDesc(TupleDesc td)
     {
         // some code goes here
+        this.td = td;
     }
 }

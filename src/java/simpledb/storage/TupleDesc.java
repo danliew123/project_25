@@ -222,8 +222,8 @@ public class TupleDesc implements Serializable {
     public boolean equals(Object o) {
         // some code goes here
         if (!(o instanceof TupleDesc)) return false;
-
         TupleDesc other = (TupleDesc) o;
+        
         if (this.numFields() != other.numFields()){
             return false;
         }
