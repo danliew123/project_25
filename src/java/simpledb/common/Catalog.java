@@ -33,6 +33,7 @@ public class Catalog {
     private final Map<Integer, String> idToName;
     private final Map<Integer, String> idToPkey;
     
+    //QH
     public Catalog() {
         // some code goes here
         idToFile = new HashMap<>();
@@ -88,6 +89,7 @@ public class Catalog {
      * Return the id of the table with a specified name,
      * @throws NoSuchElementException if the table doesn't exist
      */
+    //QH
     public int getTableId(String name) throws NoSuchElementException {
         // some code goes here
         if (!nameToId.containsKey(name)) {
@@ -102,6 +104,7 @@ public class Catalog {
      *     function passed to addTable
      * @throws NoSuchElementException if the table doesn't exist
      */
+    //QH
     public TupleDesc getTupleDesc(int tableid) throws NoSuchElementException {
         // some code goes here
          if (!idToFile.containsKey(tableid)) {
@@ -116,6 +119,7 @@ public class Catalog {
      * @param tableid The id of the table, as specified by the DbFile.getId()
      *     function passed to addTable
      */
+    //QH
     public DbFile getDatabaseFile(int tableid) throws NoSuchElementException {
         // some code goes here
          if (!idToFile.containsKey(tableid)) {

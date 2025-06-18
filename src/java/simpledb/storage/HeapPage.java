@@ -87,7 +87,7 @@ public class HeapPage implements Page {
     //QH
     private int getHeaderSize() {        
         // some code goes here
-        return (int) Math.ceil(getNumTuples()/8);
+        return (int) Math.ceil(numSlots/8);
                  
     }
     
@@ -291,6 +291,7 @@ public class HeapPage implements Page {
     /**
      * Returns the number of empty slots on this page.
      */
+    //QH
     public int getNumEmptySlots() {
         // some code goes here
         int count = 0;
@@ -305,6 +306,7 @@ public class HeapPage implements Page {
     /**
      * Returns true if associated slot on this page is filled.
      */
+    //QH
     public boolean isSlotUsed(int i) {
         // some code goes here
         if (i < 0 || i >= numSlots) return false;

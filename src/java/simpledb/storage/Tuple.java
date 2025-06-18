@@ -34,6 +34,7 @@ public class Tuple implements Serializable {
     /**
      * @return The TupleDesc representing the schema of this tuple.
      */
+    //QH
     public TupleDesc getTupleDesc() {
         // some code goes here
         return this.td;
@@ -44,6 +45,7 @@ public class Tuple implements Serializable {
      * @return The RecordId representing the location of this tuple on disk. May
      *         be null.
      */
+    //QH
     public RecordId getRecordId() {
         // some code goes here
         // return null;
@@ -56,6 +58,7 @@ public class Tuple implements Serializable {
      * @param rid
      *            the new RecordId for this tuple.
      */
+    //QH
     public void setRecordId(RecordId rid) {
         // some code goes here
         this.recordId = rid;

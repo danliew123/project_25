@@ -92,7 +92,7 @@ public class BufferPool {
                 throw new DbException("BufferPool is full");
             }
             DbFile file = Database.getCatalog().getDatabaseFile(pid.getTableId());
-            Page page = file.readPage(pid);
+            Page page = file.readPage(pid); //implemented in HeapFile
             pageCache.put(pid, page);
             return page;
         }
