@@ -87,7 +87,7 @@ public class HeapPage implements Page {
     //QH
     private int getHeaderSize() {        
         // some code goes here
-        return (int) Math.ceil(numSlots/8);
+        return (int) Math.ceil(numSlots/8.0);
                  
     }
     
